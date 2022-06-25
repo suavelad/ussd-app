@@ -20,8 +20,37 @@ class USSDEventView(APIView):
         
         return Response ('Done',status=status.HTTP_200_OK)  
     
+def quick_saver (text):  
+        if text == '1*1':
+            response = 'CON What is your Firstname?'
+        
+        elif text.count('*') == 2 and text.split('*')[:2]== ['1', '1'] :
+            firstname= text.split('*')[2]
+            print ('firstname:',firstname)
 
-data = { }  
+            response = 'CON What is your Lastname '
+        
+        elif text.count('*') == 3 and text.split('*')[:2]== ['1', '1'] :
+            lastname= text.split('*')[3]
+            print ('lastname:',lastname)
+            response = 'CON What is your Sex' 
+            
+        elif text.count('*') == 4 and text.split('*')[:2]== ['1', '1'] :
+            sex= text.split('*')[4]
+            lname = text.split('*')[3]
+            fname = text.split('*')[2]
+            response = 'END Quick Saver account created successfully.\nBelow are filled data: \n'
+            response += f'Firstname: {fname} \n'
+            response += f'Lastname: {lname} \n'
+            response += f'Sex: {sex}'
+            
+            data = { }  
+            data['Firstname'] = fname
+            data['lastname'] = lname
+            data['Sex'] = sex
+            print ('data:',data)
+        
+
 
 def d_text(text):
     if text =='' or text.split('*')[-1]== '0':
@@ -36,43 +65,12 @@ def d_text(text):
         response += '1. Quick Savers \n'
         response += '2. Medium Savers \n'
         response += '3. Gold Savers \n'
-        response += '4. Premium Savers '
-        
-    elif text == '1*1':
-        response = 'CON What is your Firstname?'
+        response += '4. Premium Savers  \n'
+        response += '0. Back to the menu '
     
-    elif text.count('*') == 2 and text.split('*')[:2]== ['1', '1'] :
-        firstname= text.split('*')[2]
-        data['firstname'] = firstname
-        print ('firstname:',firstname)
-
-        response = 'CON What is your Lastname '
+    if text[:2]== '1*':
+        quick_saver(text)
     
-    elif text.count('*') == 3 and text.split('*')[:2]== ['1', '1'] :
-        lastname= text.split('*')[3]
-        print ('lastname:',lastname)
-        data['lastname'] = lastname
-        response = 'CON What is your Sex' 
-        
-    elif text.count('*') == 4 and text.split('*')[:2]== ['1', '1'] :
-        sex= text.split('*')[4]
-        lname = text.split('*')[3]
-        fname = text.split('*')[2]
-        response = 'END Your Registration was successful. Below are filled data \n'
-        response += f'Firstname: {fname} \n'
-        response += f'Lastname: {lname} \n'
-        response += f'Sex: {sex}'
-
-        print ('data:',data)
-    
-    elif text.split('*')[-1]== '0' :
-        sex= text.split('*')[4]
-        data['sex'] =sex
-        response = 'END Your Registration was successful'
-        print ('data:',data)
-    
-        
-
     elif text == '2':
         response = "END  Your account balance is $1,020,500"
 
