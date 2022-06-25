@@ -70,7 +70,7 @@ def d_text(text):
         response += '0. Back to the menu '
     
     elif text[:2]== '1*':
-        quick_saver(text)
+        response = quick_saver(text)
     
     elif text == '2':
         response = "END  Your account balance is $1,020,500"
@@ -80,8 +80,7 @@ def d_text(text):
         
     else:
         response = "END  Invalid Input"
-        
-        
+     
     return response
 @csrf_exempt
 def ussd_view(request):
