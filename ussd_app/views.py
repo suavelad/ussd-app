@@ -56,23 +56,23 @@ def medium_saver (text):
     if text == '1*2':
         response = 'CON What is your Company Name?'
     
-    elif text.count('*') == 2 and text.split('*')[:2]== ['2', '1'] :
+    elif text.count('*') == 2 and text.split('*')[:2]== ['1', '2'] :
         company= text.split('*')[2]
         print ('firstname:',company)
 
         response = 'CON What is your Lastname '
     
-    elif text.count('*') == 3 and text.split('*')[:2]== ['1', '1'] :
+    elif text.count('*') == 3 and text.split('*')[:2]== ['1', '2'] :
         lastname= text.split('*')[3]
         print ('lastname:',lastname)
         response = 'CON What is your Sex' 
 
-    elif text.count('*') == 4 and text.split('*')[:2]== ['1', '1'] :
+    elif text.count('*') == 4 and text.split('*')[:2]== ['1', '2'] :
         firstname= text.split('*')[4]
         print ('lastname:',firstname)
         response = 'CON What is your Sex' 
         
-    elif text.count('*') == 5 and text.split('*')[:2]== ['1', '1'] :
+    elif text.count('*') == 5 and text.split('*')[:2]== ['1', '2'] :
         sex= text.split('*')[5]
         lname = text.split('*')[3]
         fname = text.split('*')[4]
