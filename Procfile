@@ -1,1 +1,1 @@
-web: gunicorn annoyx_project.wsgi  --log-file -
+web: gunicorn ussd_project.wsgi  --log-file -
