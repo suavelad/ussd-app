@@ -83,8 +83,13 @@ def d_text(text):
         
     elif text.count('*') == 4 and text.split('*')[:2]== ['1', '1'] :
         sex= text.split('*')[4]
-        data['sex'] =sex
-        response = 'END Your Registration was successful'
+        lname = text.split('*')[3]
+        fname = text.split('*')[2]
+        response = 'END Your Registration was successful. Below are filled data \n'
+        response += f'Firstname: {fname} \n'
+        response += f'Lastname: {lname} \n'
+        response += f'Sex: {sex}'
+
         print ('data:',data)
     
     elif text.split('*')[-1]== '0' :
