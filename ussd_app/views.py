@@ -120,7 +120,7 @@ def premium_saver(text):
     return response
 
 
-def d_text(text,phone_number):
+def main_activity(text,phone_number):
     if text =='' or text.split('*')[-1]== '0':
         response = 'CON Welcome to Sunnex Service \n'
         response += 'Our Services are: \n '
@@ -169,9 +169,9 @@ def ussd_view(request):
     if '0' in text :
         new_text = text[text.index('0')+2:]
         print(new_text)
-        response=d_text(new_text,phone_number)
+        response=main_activity(new_text,phone_number)
     else:
-        response=d_text(text,phone_number)
+        response=main_activity(text,phone_number)
     
     
     return HttpResponse(response) 
