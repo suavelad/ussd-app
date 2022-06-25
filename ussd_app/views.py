@@ -97,7 +97,7 @@ def ussd_view(request):
     if '0' in text :
         new_text = text[text.index('0')+2:]
         print(new_text)
-        response=d_text(text)
+        response=d_text(new_text)
     else:
         response=d_text(text)
     
