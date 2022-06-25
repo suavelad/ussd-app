@@ -53,7 +53,7 @@ def quick_saver (text):
     
     
 def medium_saver (text):  
-    if text == '2*1':
+    if text == '1*2':
         response = 'CON What is your Company Name?'
     
     elif text.count('*') == 2 and text.split('*')[:2]== ['2', '1'] :
@@ -89,6 +89,9 @@ def medium_saver (text):
         data['Company'] = comp
         data['Sex'] = sex
         print ('data:',data)
+    else:
+        pass
+        
     return response
 
 
