@@ -22,18 +22,18 @@ class USSDEventView(APIView):
     
 def quick_saver (text):  
     if text == '1*1':
-        response = 'CON What is your Firstname?'
+        response = 'CON What is your Firstname ?'
     
     elif text.count('*') == 2 and text.split('*')[:2]== ['1', '1'] :
         firstname= text.split('*')[2]
         print ('firstname:',firstname)
 
-        response = 'CON What is your Lastname '
+        response = 'CON What is your Lastname ?'
     
     elif text.count('*') == 3 and text.split('*')[:2]== ['1', '1'] :
         lastname= text.split('*')[3]
         print ('lastname:',lastname)
-        response = 'CON What is your Sex' 
+        response = 'CON What is your Sex( M or F) ?' 
         
     elif text.count('*') == 4 and text.split('*')[:2]== ['1', '1'] :
         sex= text.split('*')[4]
@@ -54,23 +54,23 @@ def quick_saver (text):
     
 def medium_saver (text):  
     if text == '1*2':
-        response = 'CON What is your Company Name?'
+        response = 'CON What is your Company Name ?'
     
     elif text.count('*') == 2 and text.split('*')[:2]== ['1', '2'] :
         company= text.split('*')[2]
         print ('firstname:',company)
 
-        response = 'CON What is your Lastname '
+        response = 'CON What is your Lastname ?'
     
     elif text.count('*') == 3 and text.split('*')[:2]== ['1', '2'] :
         lastname= text.split('*')[3]
         print ('lastname:',lastname)
-        response = 'CON What is your Sex' 
+        response = 'CON What is your Firstname ?' 
 
     elif text.count('*') == 4 and text.split('*')[:2]== ['1', '2'] :
         firstname= text.split('*')[4]
         print ('lastname:',firstname)
-        response = 'CON What is your Sex' 
+        response = 'CON What is your Sex ?' 
         
     elif text.count('*') == 5 and text.split('*')[:2]== ['1', '2'] :
         sex= text.split('*')[5]
@@ -97,7 +97,7 @@ def medium_saver (text):
 
 def d_text(text):
     if text =='' or text.split('*')[-1]== '0':
-        response = 'CON Welcome to Sunnex Service'
+        response = 'CON Welcome to Sunnex Service \n'
         response += 'Our Services are: \n '
         response += '1. Create Account \n'
         response += '2. Check Balacne \n'
