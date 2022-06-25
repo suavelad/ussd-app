@@ -45,7 +45,7 @@ class USSDEventView(APIView):
         
         return Response ('Done',status=status.HTTP_200_OK)  
     
-def quick_saver (text):  
+def quick_saver(text):  
     if text == '1*1':
         response = 'CON What is your Firstname ?'
     
@@ -77,7 +77,7 @@ def quick_saver (text):
     return response
     
     
-def medium_saver (text):  
+def premium_saver(text):  
     if text == '1*2':
         response = 'CON What is your Company Name ?'
     
@@ -95,7 +95,7 @@ def medium_saver (text):
     elif text.count('*') == 4 and text.split('*')[:2]== ['1', '2'] :
         firstname= text.split('*')[4]
         print ('lastname:',firstname)
-        response = 'CON What is your Sex ?' 
+        response = 'CON What is your Sex (M or F) ?' 
         
     elif text.count('*') == 5 and text.split('*')[:2]== ['1', '2'] :
         sex= text.split('*')[5]
@@ -141,7 +141,7 @@ def d_text(text):
         response = quick_saver(text)
     
     elif text[:3]== '1*2':
-        response = medium_saver(text)
+        response = premium_saver(text)
     
     elif text == '2':
         response = "END  Your account balance is $1,020,500"
