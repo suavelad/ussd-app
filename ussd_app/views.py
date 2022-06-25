@@ -90,7 +90,7 @@ def medium_saver (text):
         data['Sex'] = sex
         print ('data:',data)
     else:
-        pass
+        response = "END  Invalid Input"
         
     return response
 
@@ -100,16 +100,17 @@ def d_text(text):
         response = 'CON Welcome to Sunnex Service \n'
         response += 'Our Services are: \n '
         response += '1. Create Account \n'
-        response += '2. Check Balacne \n'
-        response += '3. Show Number'
+        response += '2. Check Balance \n'
+        response += '3. Show Number \n'
+        response += '0. Back to the menu '
+
         
     elif text == '1':
         response = 'CON What type of Account do you want to create ? \n'
         response += '1. Quick Savers \n'
-        response += '2. Medium Savers \n'
-        response += '3. Gold Savers \n'
-        response += '4. Premium Savers  \n'
+        response += '2. Premium Savers \n'
         response += '0. Back to the menu '
+    
     
     elif text[:3]== '1*1':
         response = quick_saver(text)
@@ -127,6 +128,9 @@ def d_text(text):
         response = "END  Invalid Input"
      
     return response
+
+
+
 @csrf_exempt
 def ussd_view(request):
     resp =request.POST
