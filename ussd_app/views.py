@@ -68,7 +68,7 @@ def d_text(text):
         response += '4. Premium Savers  \n'
         response += '0. Back to the menu '
     
-    if text[:2]== '1*':
+    elif text[:2]== '1*':
         quick_saver(text)
     
     elif text == '2':
