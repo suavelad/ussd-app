@@ -21,35 +21,36 @@ class USSDEventView(APIView):
         return Response ('Done',status=status.HTTP_200_OK)  
     
 def quick_saver (text):  
-        if text == '1*1':
-            response = 'CON What is your Firstname?'
-        
-        elif text.count('*') == 2 and text.split('*')[:2]== ['1', '1'] :
-            firstname= text.split('*')[2]
-            print ('firstname:',firstname)
+    if text == '1*1':
+        response = 'CON What is your Firstname?'
+    
+    elif text.count('*') == 2 and text.split('*')[:2]== ['1', '1'] :
+        firstname= text.split('*')[2]
+        print ('firstname:',firstname)
 
-            response = 'CON What is your Lastname '
+        response = 'CON What is your Lastname '
+    
+    elif text.count('*') == 3 and text.split('*')[:2]== ['1', '1'] :
+        lastname= text.split('*')[3]
+        print ('lastname:',lastname)
+        response = 'CON What is your Sex' 
         
-        elif text.count('*') == 3 and text.split('*')[:2]== ['1', '1'] :
-            lastname= text.split('*')[3]
-            print ('lastname:',lastname)
-            response = 'CON What is your Sex' 
-            
-        elif text.count('*') == 4 and text.split('*')[:2]== ['1', '1'] :
-            sex= text.split('*')[4]
-            lname = text.split('*')[3]
-            fname = text.split('*')[2]
-            response = 'END Quick Saver account created successfully.\nBelow are filled data: \n'
-            response += f'Firstname: {fname} \n'
-            response += f'Lastname: {lname} \n'
-            response += f'Sex: {sex}'
-            
-            data = { }  
-            data['Firstname'] = fname
-            data['lastname'] = lname
-            data['Sex'] = sex
-            print ('data:',data)
+    elif text.count('*') == 4 and text.split('*')[:2]== ['1', '1'] :
+        sex= text.split('*')[4]
+        lname = text.split('*')[3]
+        fname = text.split('*')[2]
+        response = 'END Quick Saver account created successfully.\nBelow are filled data: \n'
+        response += f'Firstname: {fname} \n'
+        response += f'Lastname: {lname} \n'
+        response += f'Sex: {sex}'
         
+        data = { }  
+        data['Firstname'] = fname
+        data['lastname'] = lname
+        data['Sex'] = sex
+        print ('data:',data)
+    return response
+    
 
 
 def d_text(text):
