@@ -51,6 +51,45 @@ def quick_saver (text):
         print ('data:',data)
     return response
     
+    
+def medium_saver (text):  
+    if text == '2*1':
+        response = 'CON What is your Company Name?'
+    
+    elif text.count('*') == 2 and text.split('*')[:2]== ['2', '1'] :
+        company= text.split('*')[2]
+        print ('firstname:',company)
+
+        response = 'CON What is your Lastname '
+    
+    elif text.count('*') == 3 and text.split('*')[:2]== ['1', '1'] :
+        lastname= text.split('*')[3]
+        print ('lastname:',lastname)
+        response = 'CON What is your Sex' 
+
+    elif text.count('*') == 4 and text.split('*')[:2]== ['1', '1'] :
+        firstname= text.split('*')[4]
+        print ('lastname:',firstname)
+        response = 'CON What is your Sex' 
+        
+    elif text.count('*') == 5 and text.split('*')[:2]== ['1', '1'] :
+        sex= text.split('*')[5]
+        lname = text.split('*')[3]
+        fname = text.split('*')[4]
+        comp = text.split('*')[2]
+        response = 'END Medium Saver account created successfully.\nBelow are filled data: \n'
+        response += f'Registered Company: {comp} \n'
+        response += f'Firstname: {fname} \n'
+        response += f'Lastname: {lname} \n'
+        response += f'Sex: {sex}'
+        
+        data = { }  
+        data['Firstname'] = fname
+        data['lastname'] = lname
+        data['Company'] = comp
+        data['Sex'] = sex
+        print ('data:',data)
+    return response
 
 
 def d_text(text):
