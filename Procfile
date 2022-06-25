@@ -1,0 +1,1 @@
+web: gunicorn annoyx_project.wsgi  --log-file -
