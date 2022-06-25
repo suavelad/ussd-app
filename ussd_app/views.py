@@ -108,8 +108,11 @@ def d_text(text):
         response += '4. Premium Savers  \n'
         response += '0. Back to the menu '
     
-    elif text[:2]== '1*':
+    elif text[:3]== '1*1':
         response = quick_saver(text)
+    
+    elif text[:3]== '1*2':
+        response = medium_saver(text)
     
     elif text == '2':
         response = "END  Your account balance is $1,020,500"
