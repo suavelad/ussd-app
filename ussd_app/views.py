@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
 from rest_framework.permissions import AllowAny
 import datetime 
 import requests
@@ -11,41 +12,13 @@ from django.http import HttpResponse
 # Create your views here.
 
            
-class USSDView(APIView):
+class USSDEventView(APIView):
     permission_classes = (AllowAny,)
     def post(self,request):
         resp =request.data
         print (resp)
-        phone_number = resp['phoneNumber'] if resp['phoneNumber'] else None
-        service_code = resp['serviceCode']  if resp['serviceCode'] else None
-        network_code = resp['networkCode']  if resp['networkCode'] else None
-        session_id = resp['sessionId']
-        text = resp['text']
-        print ('text:',text)
         
-        if text == ' ':
-            response = 'CON Welcome to Sunnex Service'
-            response += 'Our Services are: \n '
-            response += '1. Create Account \n'
-            response += '2. Check Balacne \n'
-            response += '3. Show Number'
-            
-        elif text == '1':
-            print ('here')
-            response = "END Account Created Successfully"
-            
-        elif text == '2':
-            response = "END  Your account balance is $1,020,500"
-
-        elif text == '3':
-            response = "END  Your number is 08067715394"  
-            response.headers['Content-Type'] = "text/plain"          
-            
-        else:
-            response = "END  Invalid Input"
-            
-            
-        return Response (response)   
+        return Response ('Done',status=status.HTTP_200_OK)  
     
 
 data = { }  
