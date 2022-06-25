@@ -16,7 +16,32 @@ class USSDEventView(APIView):
     permission_classes = (AllowAny,)
     def post(self,request):
         resp =request.data
+        d_status = resp['status']
+        date =resp['date']
+        input = resp['input']
+        networkcode = resp['networkCode']
+        session_id = resp['sessionId']
+        hops_count = resp['hopsCount']
+        service_code = resp['serviceCode']
+        error_message = resp['errorMessage']
+        last_app_resp = resp['lastAppResponse']
+        duration_in_millis = resp['durationInMillis']
+        phone_number = resp['phoneNumber']
+        
+        data = { }
+        data['status'] = d_status
+        data['date'] = date
+        data['input'] = input
+        data['networkcode'] = networkcode
+        data['session_id'] = session_id
+        data['phone_number'] = phone_number
+        data['duration'] = duration_in_millis
+        data['error_message'] = error_message
+        data['service_code'] = service_code
+        
+        print ('The event resp: ', data)
         print (resp)
+        
         
         return Response ('Done',status=status.HTTP_200_OK)  
     
